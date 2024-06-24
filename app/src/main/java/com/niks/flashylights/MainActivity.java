@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     TextView text_onoff;
     private Button btnDisco, btnDiscoShort;
 
-    Configuration configuration = new Configuration();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,17 +58,6 @@ public class MainActivity extends AppCompatActivity {
         isFlashlightAvl = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
         btnSwitch.setOnClickListener(view -> toggleFlashlight());
-
-        //DARK MODE CODE
-        int currentNightMode = configuration.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        switch (currentNightMode) {
-            case Configuration.UI_MODE_NIGHT_NO:
-                // Night mode is not active, we're using the light theme
-                break;
-            case Configuration.UI_MODE_NIGHT_YES:
-                // Night mode is active, we're using dark theme
-                break;
-        }
 
         /*
          * Switch button click event to toggle flash on/off
